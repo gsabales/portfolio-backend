@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "gmail.app.username",
+      "type": "java.lang.String",
+      "description": "Description for gmail.app.username."
+  }
+] }
