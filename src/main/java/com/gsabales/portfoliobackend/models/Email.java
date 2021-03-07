@@ -1,11 +1,10 @@
 package com.gsabales.portfoliobackend.models;
 
-
-import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.ToString;
 
 @Data
-@AllArgsConstructor
+@ToString
 public class Email {
     private String name;
     private String email;

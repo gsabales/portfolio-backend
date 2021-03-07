@@ -2,6 +2,7 @@ package com.gsabales.portfoliobackend.controllers;
 
 import com.gsabales.portfoliobackend.models.Email;
 import com.gsabales.portfoliobackend.services.EmailService;
+import com.gsabales.portfoliobackend.util.Loggable;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,13 +13,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/contact")
 @RequiredArgsConstructor
-public class ContactController {
+public class ContactController implements Loggable {
 
     private final EmailService emailService;
 
-    @GetMapping
-    public ResponseEntity<?> create() throws Exception {
-        emailService.sendEmail();
-        return ResponseEntity.ok().body("Email testing...");
+    @PostMapping(consumes = "application/json", produces = "application/json")
+    public ResponseEntity<?> create(@RequestBody Email email) {
+        emailService.sendEmail(email);
+        return ResponseEntity.ok().body(email);
     }
 }
